@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Ragini</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }body{
+  background: url('bg.jpg') center/cover no-repeat fixed;
+  min-height:100vh;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
+}
+
+.screen{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.glass{
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:24px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.25);
+}
+
+#countdownScreen{
+  flex-direction:column;
+  text-align:center;
+  gap:18px;
+}
+
+h1{
+  font-size:2.2rem;
+  font-weight:700;
+}
+
+#countdown{
+  font-size:2rem;
+  font-weight:600;
+  padding:18px 30px;
+}
+
+#mainSite{
+  display:none;
+  min-height:100vh;
+  padding:20px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  min-height:calc(100vh - 40px);
+}
+
+.left, .right{
+  padding:34px;
+}
+
+.left, .right{
+  padding:24px;
+}
+
+.left h2{
+  font-size:2rem;
+  margin-bottom:12px;
+}
+
+.subtitle{
+  opacity:.9;
+  margin-bottom:18px;
+  line-height:1.6;
+}
+
+.password-box{
+  margin-top:28px;
+  padding:28px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.10);
+  box-shadow:0 10px 30px rgba(0,0,0,0.18);
+}
+
+.password-box{
+  margin-top:20px;
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.08);
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border:none;
+  outline:none;
+  border-radius:14px;
+  margin-top:10px;
+  font-size:15px;
+}
+
+button{
+  margin-top:14px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:15px;
+  background:#ffd6e7;
+  color:#222;
+  transition:.3s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+}
+
+.card{
+  display:none;
+  margin-top:24px;
+  padding:34px;
+  border-radius:26px;
+  background:rgba(255,255,255,0.16);
+  line-height:2;
+  font-size:17px;
+  min-height:240px;
+  transform:translateY(20px) scale(0.96);
+  opacity:0;
+  transition:all 0.6s ease;
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.card{
+  display:none;
+  margin-top:22px;
+  padding:26px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.14);
+  line-height:1.9;
+  font-size:16px;
+  min-height:180px;
+}
+
+.card{
+  display:none;
+  margin-top:18px;
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.10);
+  line-height:1.7;
+}
+
+.right{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero-img{
+  width:100%;
+  max-width:420px;
+  height:auto;
+  object-fit:contain;
+  border-radius:24px;
+  margin-bottom:18px;
+  border:2px solid rgba(255,255,255,0.18);
+}
+
+.music-btn{
+  width:auto;
+  padding:12px 20px;
+  border-radius:999px;
+}
+
+.credit{
+  margin-top:18px;
+  font-size:13px;
+  opacity:.8;
+}
+
+@media(max-width:900px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+
+  h1{
+    font-size:1.8rem;
+  }
+
+  #countdown{
+    font-size:1.4rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>  <!-- COUNTDOWN SCREEN -->  <section id="countdownScreen" class="screen">
+    <div class="glass" style="padding:30px; max-width:650px; width:100%;">
+      <h1>🎂 Surprise for Ragini</h1>
+      <p style="margin-top:10px; opacity:.9;">Your special surprise opens only on the birthday 🎉</p>
+      <div id="countdown" class="glass"></div>
+    </div>
+  </section>  <!-- MAIN WEBSITE -->  <section id="mainSite">
+    <div class="layout"><div class="left glass">
+    <h2>Happy Birthday Ragini ✨</h2>
+    <p class="subtitle">
+      Your special birthday surprise is waiting here ✨
+      
+      You can unlock the two secret cards below 💖
+    </p>
+
+    <div class="password-box">
+      <h3>Card</h3>
+      <input type="password" id="pass1" placeholder="Enter Password for Card 1">
+      <button onclick="openCard1()">Open Card</button>
+
+      <div class="card" id="card1">
+        <h3>Write by Shashi<h3>
+        <p>
+        Happy Birthday Ragini ✨
+        Mahakal always blessed you 🔱
+        May you achieve everything in life and
+        progress a lot and fulfill your dreams. 
+        </p>
+      </div>
+    </div>
+
+  <div class="right glass">
+    <img src="photo.jpg" alt="Birthday Memory" class="hero-img">
+    <h2>Special Day</h2>
+    <p style="margin:12px 0; opacity:.9; max-width:420px;">
+      Soft premium birthday surprise made with wishes and a little magic ✨
+    </p>
+
+    <button class="music-btn" onclick="toggleMusic()">🎵 Play / Pause Music</button>
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="credit">Created by Shashi</div>
+  </div>
+
+</div>
+
+  </section>  <script>
+    const targetDate = new Date("April 29, 2026 00:00:00").getTime();
+
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+        document.getElementById("countdownScreen").style.display = "none";
+        document.getElementById("mainSite").style.display = "block";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerText =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }, 1000);
+
+    function openCard1(){
+      const pass = document.getElementById("pass1").value;
+      if(pass === "29"){
+        const card = document.getElementById("card1");
+        card.style.display = "block";
+        setTimeout(() => card.classList.add("show"), 100);
+      } else {
+        alert("Wrong Password for Card 1 ❌");
+      }
+    }
+
+    function toggleMusic(){
+      const music = document.getElementById("bgMusic");
+      if(music.paused){
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script></body>
+</html>
